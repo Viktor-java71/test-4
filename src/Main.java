@@ -1,28 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /*
-Задача 3
-Давайте напишим небольшой англо-русский (или англо-немецкий, или немецко-украинский ….. выберете сами) словарь.
-Создайте класс Word. В нем должно быть 2 поля:
-слово
-значение (перевод)
-Создайте класс Dictionary (словарь), который должен содержать поле - массив слов.
-(Кстати, массив слов можно передать в конструкторе класса Dictionary или задать прямо в классе, как мы делали на уроке с рецептами).
-Вы можете написать два метода 1) метод который ищет перевод по заданному слову 2) мето, который ищет слово, по заданному переводу.
-Все, что вам остается, реализовать диалог с пользователем, где ему предлагается выбрать направление перевода и ввести слово для перевода. Система должна либо вывести перевод, либо сказать, что такого слова в словаре нет.
-
+В 19 уроке у нас написана программа Dictionary (словарь). Ваша задача переписать этот код так, что бы класс Dictionary
+использовал вместо массива List Залейте код на GitHub
  */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Word[] words = {
-                new Word("dog", "собака"),
-                new Word("cat", "кот"),
-                new Word("book", "книга"),
-                new Word("table", "стол")
-        };
-        Dictionary dictionary = new Dictionary(words);
+        List<Word> words = new ArrayList<>();
+        words.add(new Word("dog", "собака"));
+        words.add(new Word("cat", "кот"));
+        words.add(new Word("book", "книга"));
+        words.add(new Word("table", "стол"));
 
+        Dictionary dictionary = new Dictionary(words);
 
 
         int mode=1;

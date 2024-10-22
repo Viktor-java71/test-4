@@ -1,34 +1,39 @@
-public class Dictionary {
-    Word[] words;
+import java.util.List;
 
-    public Dictionary(Word[] words) {
+public class Dictionary {
+    List<Word> words;
+
+    public Dictionary(List<Word> words) {
         this.words = words;
     }
 
-    public String translation(String value){
-        for (int i = 0; i<words.length; i++){
-            if (words[i].value.equalsIgnoreCase(value)){
-                return words[i].translation;
+    public String translation(String value) {
+        for (Word word : words) {
+
+                if (word.value.equalsIgnoreCase(value)) {
+                    return word.translation;
+                }
             }
+            return "";
         }
-        return "";
-    }
 
-    public String getWordByTranslation(String translation){
-        for (int i = 0; i<words.length; i++){
-            if (words[i].translation.equalsIgnoreCase(translation)){
-                return words[i].value;
+        public String getWordByTranslation (String translation){
+            for (Word word : words) {
+                if (word.translation.equalsIgnoreCase(translation)) {
+                    return word.value;
+                }
             }
+            return "";
         }
-        return "";
-    }
+        @Override
+        public String toString () {
+            {
+                StringBuilder result = new StringBuilder();
+                for (Word word : words) {
+                    result.append(word).append(System.lineSeparator());
+                }
+                return result.toString();
+            }
 
-    public String toString(){
-        String result="";
-        for (int i = 0; i < words.length; i++) {
-            result += words[i]+ System.lineSeparator();  // \n
         }
-        return result;
     }
-
-}
